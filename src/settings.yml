@@ -1,0 +1,25 @@
+---
+name: BoE Bank Rate
+description: Bank of England Bank Rate
+strategy: polling
+polling_verb: get
+polling_url: https://www.bankofengland.co.uk/boeapps/iadb/fromshowcolumns.asp?csv.x=yes&Datefrom=01/Jan/2020&Dateto=now&SeriesCodes=IUDBEDR&CSVF=TN&UsingCodes=Y&VPD=Y&VFD=N
+polling_headers: |
+  User-Agent: Mozilla/5.0 (compatible; trmnl-boe-bank-rate/1.0; +https://github.com/byalex33)
+refresh_interval: 1440
+no_screen_padding: 'no'
+dark_mode: 'no'
+serverless_language: python
+recipe_overview: |
+  Bank of England Bank Rate (official series IUDBEDR) via the IADB CSV download.
+  Shows the current rate, date of last change, previous rate, and a short history
+  of rate decisions. TRMNL can ingest CSV; a serverless transform parses it into
+  clean JSON for Liquid. An optional Cloudflare Worker JSON proxy is included
+  under worker/ if you prefer not to rely on CSV polling.
+custom_fields:
+  - keyname: about
+    name: About This Plugin
+    field_type: author_bio
+    category: finance,kpi
+    description: Built by Alex Baldry. Source Bank of England IADB series IUDBEDR.
+    github_url: https://github.com/byalex33

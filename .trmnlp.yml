@@ -1,0 +1,13 @@
+---
+watch:
+  - .trmnlp.yml
+  - src
+custom_fields: {}
+time_zone: Europe/London
+transform_runtime: enabled
+variables:
+  trmnl:
+    user:
+      name: Alex Baldry
+    plugin_settings:
+      instance_name: Bank Rate

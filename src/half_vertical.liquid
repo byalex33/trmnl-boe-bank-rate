@@ -1,0 +1,13 @@
+
+<div class="layout layout--col gap--xsmall">
+  <span class="value value--xlarge value--tnums">{{ current_pct }}%</span>
+  <span class="label">Bank Rate</span>
+  <span class="label label--small">Changed {{ last_change_date }}</span>
+  <span class="label">{{ previous_pct }}% → {{ current_pct }}%</span>
+  {% for h in history limit:3 %}
+    <span class="label label--small">{{ h.date }} · {{ h.rate }}%</span>
+  {% endfor %}
+</div>
+<div class="title_bar">
+  <span class="title">Bank Rate</span>
+</div>

@@ -1,0 +1,33 @@
+
+<div class="layout layout--col gap--small">
+  <div class="flex flex--row flex--between flex--top">
+    <div>
+      <span class="label label--small">Bank Rate</span>
+      <span class="value value--xxlarge value--tnums">{{ current_pct }}%</span>
+      <span class="label">as of {{ current_date }}</span>
+    </div>
+    <div>
+      <span class="label label--small">Last change</span>
+      <span class="value value--medium value--tnums">{{ delta_pct }} pp</span>
+      <span class="label">{{ last_change_date }}</span>
+      <span class="label label--small">Was {{ previous_pct }}%</span>
+    </div>
+  </div>
+  <div>
+    <span class="label label--small">Recent decisions</span>
+    <div class="grid grid--cols-1 gap--xsmall">
+      {% for h in history limit:6 %}
+        <div class="item">
+          <div class="content">
+            <span class="title title--small">{{ h.date }}</span>
+            <span class="label label--small">{{ h.previous }}% → {{ h.rate }}% ({{ h.delta }})</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<div class="title_bar">
+  <span class="title">BoE Bank Rate</span>
+  <span class="instance">IUDBEDR</span>
+</div>
